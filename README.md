@@ -4,6 +4,8 @@ User interface for making choose your own adventure stories.
 The UI will create a `.str` which is the choose your own adventure file
 format defined below.
 
+[Try it out here](https://dgendill.github.io/choose-your-own-adventure-maker/dist/)
+
 # File Format
 
 ### Example
