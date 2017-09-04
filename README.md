@@ -1,8 +1,10 @@
-# Choose Your Own Adventure UI
+# Choose Your Own Adventure Maker
 
 User interface for making choose your own adventure stories.
 The UI will create a `.str` which is the choose your own adventure file
 format defined below.
+
+[Try it out here](./dist)
 
 # File Format
 
