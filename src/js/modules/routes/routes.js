@@ -28,7 +28,7 @@ export default angular
 
         $scope.setTextStory = function() {
           $scope.view.textStory = Parts.all.map(element => {
-            let text = idToString(element.id) + "\n";
+            let text = "Text " + idToString(element.id) + "\n";
             text += element.choices.map(c => {                
                 return "[" + quote(c.content) + "] go " + idToString(c.linksTo.id);
               }).join('\n')

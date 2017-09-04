@@ -19,8 +19,9 @@ L.service("Parts", function() {
 
   this.load = function() {
     self.all.length = 0;
-    [].push.apply(self.all, JSON.parse(window.localStorage.getItem('Story')).map(Part.fromForeign));
+    [].push.apply(self.all, (JSON.parse(window.localStorage.getItem('Story')) || self.defaultParts).map(Part.fromForeign));
     
+
     // const old = self.all;
     // console.log(self.all);
     // [].splice.apply(self.all, [0, self.all.length].concat(
@@ -32,5 +33,7 @@ L.service("Parts", function() {
 
   }
 
-  this.all = [new Part(), new Part()]
+  this.defaultParts = [new Part(), new Part()]
+  this.all = [];
+
 });

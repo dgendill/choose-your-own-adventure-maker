@@ -1,28 +1,83 @@
-# webpack AngularJS Starter
+# Choose Your Own Adventure UI
 
-A basic starter package for a new AngularJS project. Code is grouped in module folders as opposed to controller/service/directive folders. Mocha tests for the module should be placed in the corresponding `test/modules/[name].test.js` file.
+User interface for making choose your own adventure stories.
+The UI will create a `.str` which is the choose your own adventure file
+format defined below.
 
-# Install and Usage
+# File Format
 
-For mac and linux users: Build docker mysql container.
-
+### Example
 ```
-cd docker-mysql
-./build.sh
+Text S365dot13
+["Turn Doorknob"] go S365dot14500000000004
+["Perform Spin Kick"] go S43538dot395000000004
+---
+You are in a dark room and can't see anything. You fumble
+around in the dark and feel a door handle. Suddenly you
+hear a voice behind you say, "You're not going anywhere!"
+
+---next---
+
+Text S365dot14500000000004
+["Back to Start"] go S365dot13
+---
+You turn the doorknob and a flood of light
+streams into the room. You start to burn from the light
+of the sun.
+
+YOU ARE DEAD
+
+---next---
+
+Text S43538dot395000000004
+["Back to Start"] go S365dot13
+---
+You do a spin kick and attempt to knock whoever is behind you to
+the ground! Too bad you were too slow!
+
+YOU ARE DEAD.
 ```
 
-Go back to project root, install project dependencies, start mysql, and start the frontend and backend servers.
+### Rules
+```
+1 Notational Conventions and Generic Grammar
+1.1 Augmented BNF
+
+    All of the mechanisms specified in this document are described in
+    both prose and an augmented Backus-Naur Form (BNF) similar to that
+    used by RFC 822 [9].
+
+    *rule
+          The character "*" preceding an element indicates repetition. The
+          full form is "<n>*<m>element" indicating at least <n> and at most
+          <m> occurrences of element. Default values are 0 and infinity so
+          that "*(element)" allows any number, including zero; "1*element"
+          requires at least one; and "1*2element" allows one or two.
+
+    (rule1 rule2)
+          Elements enclosed in parentheses are treated as a single element.
+          Thus, "(elem (foo | bar) elem)" allows the token sequences "elem
+          foo elem" and "elem bar elem".
+
+1.2 Rules
+
+    qdtext                    = <any TEXT except <">>
+    quoted-pair               = "\" CHAR
+    quoted-string             = ( <"> *(qdtext | quoted-pair ) <"> )
+
+    partid                    = 1*(ALPHA | DIGIT)
+    start                     = "Text " partid
+    choice                    = "[" quotedString "] go " partid
+    story-part                =  (start CRLF *choice "---" CRLF *TEXT)
+
+    choose-your-own-adventure = story-part *(CRLF "---next---" CRLF story-part)
+```
+
+# Install
 
 ```
 npm install
-npm run mysql
 npm run dev
 ```
 
-Visit http://localhost:8080/ afterwords.
-
-# Tests
-
-You can run the karma+mocha+chi tests by running `npm run test`. See auth.test.js for an example of
-"midway tests" - not true unit tests, but not end-to-end tests either.  They are a sort of middle ground
-constructed like unit tests, but allow live api calls instead of requiring mock API data.
+Visit the user interface at localhost:8080.

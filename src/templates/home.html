@@ -9,12 +9,20 @@
 </div>
 
 <div id="wrapper">
-  <div class="cyoa-header">
-    <button ng-click="addNewPart()">Add Part <i class="fa fa-plus"></i></button>
-    <button>Download <i class="fa fa-download"></i></button>
-    <button ng-click="setTextStory()">Export <i class="fa fa-download"></i></button>
-    <!-- <button ng-click="save()">Save <i class="fa fa-download"></i></button> -->
-    <!-- <button ng-click="load()">Load <i class="fa fa-download"></i></button> -->
+
+  <div class="col col-lg-12">
+    <h1>Choose Your Own Adventure Maker</h1>
+  </div>
+  
+  <div class="col col-lg-12">
+
+    <div class="cyoa-header">
+      <button class="app-button" ng-click="addNewPart()">Add Part <i class="fa fa-plus"></i></button>
+      <!-- <button class="app-button" >Download <i class="fa fa-download"></i></button> -->
+      <!-- <button class="app-button" ng-click="setTextStory()">Export <i class="fa fa-upload"></i></button> -->
+      <!-- <button ng-click="save()">Save <i class="fa fa-download"></i></button> -->
+      <!-- <button ng-click="load()">Load <i class="fa fa-download"></i></button> -->
+    </div>
   </div>
 
   <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea>
