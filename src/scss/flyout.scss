@@ -1,0 +1,134 @@
+
+.menutoggle {
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:100;
+  background:none;
+  border:0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  @include desktop() {
+    display:none;
+  }
+}
+
+.flyout {
+
+  // Generic flyout
+  .flyout-menu {
+    position:fixed;
+    top:0;
+    height:calc(100%);
+    @include transition(left .3s);
+  }
+
+  &.flyout__right {
+    left:calc(100%);
+
+    @mixin sidebarVisible() {
+      left:0;
+      .flyout-menu {
+        left:calc(100% - 300px);
+        @include transition(left .3s);
+      }
+    }
+
+    @include desktop() {
+      @include sidebarVisible();
+    }
+
+    &.is-open {
+      left:0;
+      .flyout-menu {
+        left:calc(100% - 300px);
+        @include transition(left .3s);
+      }
+    }
+
+    .flyout-menu {
+      left:calc(100%);
+    }
+  }
+
+  &.flyout__left {
+    left:calc(-100% - #{$flyoutWidth});
+
+    @mixin sidebarVisible() {
+      left:calc(0% - #{$flyoutWidth});
+      .flyout-menu {
+        left:0;
+        @include transition(left .3s);
+      }
+    }
+
+    @include desktop() {
+      @include sidebarVisible();
+    }
+
+    &.is-open {
+      @include sidebarVisible();
+
+      // left:calc(0% - #{$flyoutWidth});
+      // .flyout-menu {
+      //   left:0;
+      //   @include transition(left .3s);
+      // }
+    }
+    @include mobile() {
+      .flyout-menu {
+        left:-$flyoutWidth;
+      }
+    }
+  }
+
+  z-index:1000;
+
+  @include mobile() { width:calc(100% + #{$flyoutWidth}); }
+  @include desktop() { width: $flyoutWidth; }
+
+  height:calc(100%);
+  background:rgba(0,0,0,.3);
+  position:fixed;
+  top:0;
+  // End generic flyout
+
+  // Site specific
+  .flyout-menu {
+    background:#12112f;
+    color:#fff;
+    width:300px;
+    padding:1em;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid #fff;
+    display:block;
+    margin-bottom:6px;
+    padding-bottom:10px;
+
+    &:last-child {
+      border-bottom:0px;
+    }
+
+    &:hover {
+      color:#fdfccd;
+    }
+  }
+
+  ul {
+    font-size:1.5em;
+    list-style-type:none;
+
+    li {
+      margin-bottom:1.2em;
+    }
+  }
+  // End site specific
+
+}

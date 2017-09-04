@@ -1,0 +1,16 @@
+@mixin transition($t) {
+  -webkit-transition: $t;
+   transition: $t;
+}
+
+@mixin mobile {
+  @media all and (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media all and (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

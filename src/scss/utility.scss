@@ -1,0 +1,13 @@
+.u-full { width: 100%; }
+.u-text-center { text-align: center; }
+.u-pointer { cursor: pointer; }
+
+@for $i from 1 through 10 {
+  $amount: $i*5;
+  .u-ptop#{$amount} { padding-top: #{$amount}px; }
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}

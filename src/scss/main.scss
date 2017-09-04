@@ -1,0 +1,115 @@
+@import 'bootstrap/bootstrap.min.scss';
+@import 'font-awesome/scss/font-awesome';
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'reset.scss';
+@import 'utility.scss';
+@import 'flyout.scss';
+
+
+body {
+  background:#fff;
+  font-family:$text-sans-serif;
+}
+
+#wrapper {
+  @include mobile {
+    margin:0 auto;
+    width: 100%;
+  }
+  @include desktop {
+    position:absolute;
+    top:0;
+    left:$flyoutWidth;
+    width:calc(100% - #{$flyoutWidth});
+  }
+
+  .container {
+    width:100%;
+  }
+}
+
+
+.app-login-form {
+  $form-background: #f4f4f4;
+  background: $form-background;
+
+  form {
+    width:100%;
+    display:table;
+    border:1px solid #c7c7c7;
+    padding:15px;
+    
+  }
+
+  label { text-align: right; padding-right:10px; }
+  
+
+  .app-login-form__col {
+    display:table-cell;
+    padding-bottom:2px;
+  }
+
+  .app-login-form__row {
+    display:table-row;
+    border-spacing:3px;
+  }
+
+  .app-login-form__info {
+    text-align:center;
+    border:1px solid #c7c7c7;
+    border-top:0;
+    padding:15px;
+
+    &.state-failure {
+      $color:#cb0000;
+      color:$color;
+      background:mix($color, $form-background, 5);
+      
+    }
+    &.state-loading {
+      $color:#52a55c;
+      color:$color;
+      background:mix($color, $form-background, 5);
+    }
+
+  }
+}
+
+.app-button {
+  background:none;
+  
+  padding:5px;
+  border:0;
+  cursor:pointer;
+  display:inline-block;
+  font-size:15px;
+
+  &:focus, &:active {
+    box-shadow: inset 0px 0px 2px #000000;
+  }
+
+  &.disabled, &:disabled {
+    opacity:.6;
+    color: #555;
+    cursor:not-allowed;
+  }
+
+  &.app-button--whitesquare {
+    background:#fff;
+    border-radius:0;
+  }
+
+  &.app-button--green {
+    $color: #84c68c;
+    background:$color;
+
+    @include transition(background .3s);
+
+    &:hover {
+      @include transition(background .3s);
+      background:darken($color, 5);
+
+    }
+  }
+}

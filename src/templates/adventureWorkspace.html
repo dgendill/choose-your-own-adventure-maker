@@ -1,0 +1,17 @@
+
+  
+
+<div class="adventure-workspace" ng-repeat="part in $ctrl.parts" class="col col-lg-6">
+  <article class="adventure-workspace--part">
+    <h2>Part {{$index}}</h2>
+    <textarea ng-bind="part.content"></textarea>
+    <button ng-click="$ctrl.addChoice(part)">Add Choice <i class="fa fa-plus"></i></button>
+    <div ng-repeat="choice in part.choices">
+      <input type="text" ng-model="choice.content"> goes to
+      {{choice.linksTo}}
+      <select ng-options="rpart as rpart.label for rpart in $ctrl.partLinks(part) track by rpart.id" ng-model="choice.linksTo">
+        <option value="">- Choose Part -</option>
+      </select>
+    </div>
+  </article>
+</div>
