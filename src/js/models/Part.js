@@ -1,6 +1,6 @@
 class Part {
   constructor() {
-    this.id = performance.now();
+    this.id = Date.now() + "" + performance.now();
     this.content = '';
     // Array { content :: String, linksTo :: { id :: ID, label :: String } }
     this.choices = [];

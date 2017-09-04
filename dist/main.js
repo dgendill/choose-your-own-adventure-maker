@@ -61,14 +61,14 @@ var MyApp =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(6);
+__webpack_require__(7);
 module.exports = angular;
 
 
@@ -93,7 +93,7 @@ let m = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('cyoa', ['ngCooki
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(7);
+__webpack_require__(8);
 module.exports = 'ngCookies';
 
 
@@ -106,17 +106,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__cyoa_js__ = __webpack_require__(1);
 
 
-var autoloader = __webpack_require__(9);
-autoloader.keys().forEach(function(key) {
-  autoloader(key);
-});
-
 var autoloader = __webpack_require__(10);
 autoloader.keys().forEach(function(key) {
   autoloader(key);
 });
 
-var autoloader = __webpack_require__(13);
+var autoloader = __webpack_require__(11);
+autoloader.keys().forEach(function(key) {
+  autoloader(key);
+});
+
+var autoloader = __webpack_require__(14);
 autoloader.keys().forEach(function(key) {
   autoloader(key);
 });
@@ -130,6 +130,31 @@ autoloader.keys().forEach(function(key) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+class Part {
+  constructor() {
+    this.id = Date.now() + "" + performance.now();
+    this.content = '';
+    // Array { content :: String, linksTo :: { id :: ID, label :: String } }
+    this.choices = [];
+  }
+
+  static fromForeign(data) {
+    let p = new Part();
+    p.id = data.id;
+    p.content = data.content;
+    p.choices = data.choices;
+    return p;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Part);
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
 
@@ -138,7 +163,7 @@ autoloader.keys().forEach(function(key) {
   
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,13 +172,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_cookies__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_cookies___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_cookies__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__uirouter_angularjs__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__uirouter_angularjs__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__uirouter_angularjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__uirouter_angularjs__);
 
 
 
 let appModules = [];
-let requireTest = __webpack_require__(8);
+let requireTest = __webpack_require__(9);
 
 requireTest.keys().forEach(function(key) {
   appModules.push(requireTest(key).default.name);  
@@ -177,7 +202,7 @@ window.addEventListener('load', function() {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /**
@@ -34071,7 +34096,7 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /**
@@ -34408,13 +34433,13 @@ angular.module('ngCookies').provider('$$cookieWriter', /** @this */ function $$C
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./cyoa/index.js": 3,
-	"./layout/index.js": 15,
-	"./routes/index.js": 19
+	"./layout/index.js": 16,
+	"./routes/index.js": 20
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -34430,10 +34455,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 8;
+webpackContext.id = 9;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -34442,14 +34467,14 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 9;
+webpackEmptyContext.id = 10;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./adventureWorkspace.js": 11
+	"./adventureWorkspace.js": 12
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -34465,10 +34490,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 10;
+webpackContext.id = 11;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34481,7 +34506,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_1__cyoa_js__["a" /* default */].component('adventureWorkspace', {
   bindings : {},
-  template: __webpack_require__(12),
+  template: __webpack_require__(13),
   controller : AdventureWorkspaceCtrl
 });
 
@@ -34530,17 +34555,17 @@ function AdventureWorkspaceCtrl($scope, $element, $attrs, Parts) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = "<form name=\"workspaceform\" class=\"adventure-workspace\">\n<div ng-repeat=\"part in $ctrl.parts\" class=\"col col-lg-6\">\n  <article class=\"adventure-workspace--part\">\n    <h2>Part {{$index}}</h2>\n    <textarea ng-model=\"part.content\"></textarea>\n    <button alt=\"Add Choice\" class=\"app-button app-button--green\" ng-click=\"$ctrl.addChoice(part)\">Add Choice <i class=\"fa fa-plus\"></i></button>\n    <div ng-repeat=\"choice in part.choices\" class=\"adventure-workspace__choice\">\n      <button alt=\"Remove Choice\" ng-click=\"$ctrl.removeChoice(part.choices, $index)\" class=\"app-button app-button--ui-row\"><i class=\"fa fa-minus\"></i></button>\n      <input type=\"text\" ng-model=\"choice.content\"> <span class=\"adventure-workspace__choice__text\">goes to</span>\n      <select required ng-options=\"rpart as rpart.label for rpart in $ctrl.partLinks(part) track by rpart.id\" ng-model=\"choice.linksTo\">\n        <option value=\"\">- Choose Part -</option>\n      </select>\n    </div>\n  </article>\n</div>"
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./Parts.js": 14
+	"./Parts.js": 15
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -34556,16 +34581,16 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 13;
+webpackContext.id = 14;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__cyoa_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_Models_Part_js__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_Models_Part_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular__);
 
@@ -34609,25 +34634,25 @@ __WEBPACK_IMPORTED_MODULE_0__cyoa_js__["a" /* default */].service("Parts", funct
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layout_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layout_js__ = __webpack_require__(5);
 
-let autoloader = __webpack_require__(16);
+let autoloader = __webpack_require__(17);
 autoloader.keys().forEach(function(key) {
   autoloader(key);
 });
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__layout_js__["a" /* default */]);
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./appFlyoutMenu.js": 17
+	"./appFlyoutMenu.js": 18
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -34643,18 +34668,18 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 16;
+webpackContext.id = 17;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__appFlyoutMenu_html__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__appFlyoutMenu_html__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__appFlyoutMenu_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__appFlyoutMenu_html__);
 
 
@@ -34693,32 +34718,32 @@ __WEBPACK_IMPORTED_MODULE_1__layout_js__["a" /* default */].directive('appFlyout
 })
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n  <div ng-repeat=\"item in data.items\">\n    <a ui-src=\"\">{{item.text}}</a>\n  </div>\n</div>"
-
-/***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes_js__ = __webpack_require__(20);
-
-/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__routes_js__["a" /* default */]);
 
 /***/ }),
 /* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes_js__ = __webpack_require__(21);
+
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__routes_js__["a" /* default */]);
+
+/***/ }),
+/* 21 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_Modules_cyoa__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_Models_Part_js__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_Models_Part_js__ = __webpack_require__(4);
 
 
 
@@ -34771,7 +34796,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
       },
-      template: __webpack_require__(24),
+      template: __webpack_require__(25),
       resolve: {
 
       }
@@ -34784,7 +34809,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -51873,10 +51898,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22), __webpack_require__(23)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23), __webpack_require__(24)(module)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 var g;
@@ -51903,7 +51928,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -51931,13 +51956,13 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = "\n<div app-flyout-menu>\n  <button class=\"menutoggle\"><i class=\"fa fa-lg fa-bars\"></i></button>\n  <div class=\"flyout flyout__left\">\n    <div class=\"flyout-menu\">\n      \n    </div>\n  </div>\n</div>\n\n<div id=\"wrapper\">\n\n  <div class=\"col col-lg-12\">\n    <h1>Choose Your Own Adventure Maker</h1>\n  </div>\n  \n  <div class=\"col col-lg-12\">\n\n    <div class=\"cyoa-header\">\n      <button class=\"app-button\" ng-click=\"addNewPart()\">Add Part <i class=\"fa fa-plus\"></i></button>\n      <!-- <button class=\"app-button\" >Download <i class=\"fa fa-download\"></i></button> -->\n      <!-- <button class=\"app-button\" ng-click=\"setTextStory()\">Export <i class=\"fa fa-upload\"></i></button> -->\n      <!-- <button ng-click=\"save()\">Save <i class=\"fa fa-download\"></i></button> -->\n      <!-- <button ng-click=\"load()\">Load <i class=\"fa fa-download\"></i></button> -->\n    </div>\n  </div>\n\n  <textarea class=\"export-textarea\" readonly placeholder=\"Exported Story Goes Here\" ng-model=\"view.textStory\"></textarea>\n\n  <adventure-workspace></adventure-workspace>\n  \n</div>\n\n"
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -51948,7 +51973,7 @@ module.exports = "\n<div app-flyout-menu>\n  <button class=\"menutoggle\"><i cla
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 (function (global, factory) {
-     true ? factory(exports, __webpack_require__(0), __webpack_require__(26)) :
+     true ? factory(exports, __webpack_require__(0), __webpack_require__(27)) :
     typeof define === 'function' && define.amd ? define(['exports', 'angular', '@uirouter/core'], factory) :
     (factory((global['@uirouter/angularjs'] = global['@uirouter/angularjs'] || {}),global.angular,global['@uirouter/core']));
 }(this, (function (exports,ng_from_import,_uirouter_core) { 'use strict';
@@ -53956,7 +53981,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -61813,31 +61838,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 })));
 //# sourceMappingURL=ui-router-core.js.map
 
-
-/***/ }),
-/* 27 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Part {
-  constructor() {
-    this.id = performance.now();
-    this.content = '';
-    // Array { content :: String, linksTo :: { id :: ID, label :: String } }
-    this.choices = [];
-  }
-
-  static fromForeign(data) {
-    let p = new Part();
-    p.id = data.id;
-    p.content = data.content;
-    p.choices = data.choices;
-    return p;
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Part);
 
 /***/ })
 /******/ ]);
