@@ -12,9 +12,14 @@
   <div class="cyoa-header">
     <button ng-click="addNewPart()">Add Part <i class="fa fa-plus"></i></button>
     <button>Download <i class="fa fa-download"></i></button>
-
+    <button ng-click="setTextStory()">Export <i class="fa fa-download"></i></button>
+    <!-- <button ng-click="save()">Save <i class="fa fa-download"></i></button> -->
+    <!-- <button ng-click="load()">Load <i class="fa fa-download"></i></button> -->
   </div>
 
-  <adventure-workspace parts="parts"></adventure-workspace>
+  <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea>
+
+  <adventure-workspace></adventure-workspace>
+  
 </div>
 

@@ -6,7 +6,6 @@
 @import 'utility.scss';
 @import 'flyout.scss';
 
-
 body {
   background:#fff;
   font-family:$text-sans-serif;
@@ -29,61 +28,15 @@ body {
   }
 }
 
-
-.app-login-form {
-  $form-background: #f4f4f4;
-  background: $form-background;
-
-  form {
-    width:100%;
-    display:table;
-    border:1px solid #c7c7c7;
-    padding:15px;
-    
-  }
-
-  label { text-align: right; padding-right:10px; }
-  
-
-  .app-login-form__col {
-    display:table-cell;
-    padding-bottom:2px;
-  }
-
-  .app-login-form__row {
-    display:table-row;
-    border-spacing:3px;
-  }
-
-  .app-login-form__info {
-    text-align:center;
-    border:1px solid #c7c7c7;
-    border-top:0;
-    padding:15px;
-
-    &.state-failure {
-      $color:#cb0000;
-      color:$color;
-      background:mix($color, $form-background, 5);
-      
-    }
-    &.state-loading {
-      $color:#52a55c;
-      color:$color;
-      background:mix($color, $form-background, 5);
-    }
-
-  }
-}
-
 .app-button {
   background:none;
   
-  padding:5px;
+  padding:.3em 1em;
   border:0;
   cursor:pointer;
   display:inline-block;
   font-size:15px;
+  border-radius:.3em;
 
   &:focus, &:active {
     box-shadow: inset 0px 0px 2px #000000;
@@ -112,4 +65,74 @@ body {
 
     }
   }
+
+  &.app-button--ui-row {
+    margin-right: 1em;
+    padding:5px;
+  }
+}
+
+.ng-invalid {
+  border:1px solid red;
+}
+
+form.ng-invalid {
+  border:none;
+}
+
+textarea {
+  padding:.5em;
+  border:1px solid #b3b3b3;
+}
+
+.adventure-workspace {
+
+  font-size:16px;
+  line-height:1.5em;
+
+  h2 {
+    font-size:1.5em;
+    margin-bottom:1em;
+  }
+
+  textarea {
+    width:100%;
+    height:200px;
+  }
+
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  .col {
+    float:none;
+    border:1px solid #b3b3b3;
+    padding:1em;
+    flex-basis:45%;
+    margin:0 0 2em 2em;
+  }
+
+  .adventure-workspace__choice {
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    margin-top:1em;
+
+    input[type=text] {
+      width:300px;
+    }
+    select { width: 150px; }
+
+    .adventure-workspace__choice__text {
+      white-space:nowrap;
+      display:block;
+      margin:0 1em;
+    }
+  }
+}
+
+.export-textarea {
+  width:50%;
+  height:200px;
+  margin:1em 2em;
 }

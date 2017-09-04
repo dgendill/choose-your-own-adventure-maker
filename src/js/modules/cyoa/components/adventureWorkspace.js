@@ -2,9 +2,7 @@ import angular from 'angular';
 import L from '../cyoa.js';
 
 L.component('adventureWorkspace', {
-  bindings : {
-    parts : '='
-  },
+  bindings : {},
   template: require('Templates/adventureWorkspace.html'),
   controller : AdventureWorkspaceCtrl
 });
@@ -12,9 +10,14 @@ L.component('adventureWorkspace', {
 
 function AdventureWorkspaceCtrl($scope, $element, $attrs, Parts) {
   var ctrl = this;
+  ctrl.parts = Parts.all;
+
+  $scope.$watch('workspaceform.$valid', function(isValid) {
+    console.log(isValid);
+  });
 
   ctrl.partLinks = function(exclude) {
-    console.log(exclude);
+    
     return Parts.all.map(function(e, index) {
       return {
         label : ("Part " + index),
@@ -33,6 +36,10 @@ function AdventureWorkspaceCtrl($scope, $element, $attrs, Parts) {
       content : '',
       linksTo : null
     });
+  }
+
+  ctrl.removeChoice = function(choices, index) {
+    choices.splice(index, 1);
   }
 
   ctrl.addChoice = function(part) {
