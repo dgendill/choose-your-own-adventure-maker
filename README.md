@@ -1,10 +1,15 @@
-# Choose Your Own Adventure UI
+# Choose Your Own Adventure Maker
 
-User interface for making choose your own adventure stories.
-The UI will create a `.str` which is the choose your own adventure file
-format defined below.
+User interface for making choose your own adventure stories. The UI will create a `.str` file which is the choose-your-own-adventure file
+format (see below for specification). See [choose-your-own-adventure-parser](https://github.com/dgendill/choose-your-own-adventure-parser) for a JavaScript parser.
 
-[Try it out here](https://dgendill.github.io/choose-your-own-adventure-maker/dist/)
+[Try it here.](https://dgendill.github.io/choose-your-own-adventure-maker/dist/)
+
+# Todo
+
+1. Add controls to remove a story part.
+2. Add download button, providing .str format and .json format.
+3. Embed compiler so stories can be immediately tested in the browser.
 
 # File Format
 
