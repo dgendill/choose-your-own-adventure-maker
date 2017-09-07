@@ -7,6 +7,11 @@
   .u-ptop#{$amount} { padding-top: #{$amount}px; }
 }
 
+@for $i from 1 through 10 {
+  $amount: $i*5;
+  .u-mtop#{$amount} { margin-top: #{$amount}px; }
+}
+
 .col-centered{
   float: none;
   margin: 0 auto;

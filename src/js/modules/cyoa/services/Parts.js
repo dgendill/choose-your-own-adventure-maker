@@ -17,9 +17,10 @@ L.service("Parts", function() {
     window.localStorage.setItem('Story', angular.toJson(self.all));
   }
 
-  this.load = function() {
+  // StringifiedJSON -> Eff
+  this.load = function(data) {
     self.all.length = 0;
-    [].push.apply(self.all, (JSON.parse(window.localStorage.getItem('Story')) || self.defaultParts).map(Part.fromForeign));
+    [].push.apply(self.all, (angular.fromJson(data) || self.defaultParts).map(Part.fromForeign));
     
 
     // const old = self.all;
@@ -35,5 +36,9 @@ L.service("Parts", function() {
 
   this.defaultParts = [new Part(), new Part()]
   this.all = [];
+
+  this.toJson = function() {
+    return angular.toJson(this.all);
+  }
 
 });

@@ -14,7 +14,7 @@ L.directive('appFlyoutMenu', function() {
           var fm = element[0].getElementsByClassName('flyout-menu')[0];
 
           fm.addEventListener('click', function(e) {
-            e.stopImmediatePropagation();
+            // e.stopImmediatePropagation();
           });
 
           f.addEventListener('click', function() {

@@ -17,7 +17,35 @@
   <div class="col col-lg-12">
 
     <div class="cyoa-header">
-      <button class="app-button" ng-click="addNewPart()">Add Part <i class="fa fa-plus"></i></button>
+      <!-- <button class="app-button" ng-click="addNewPart()">Add Part <i class="fa fa-plus"></i></button> -->
+      <a class="app-button" ng-href="{{downloadHref()}}" download="Story.str">Download Story.str <i class="fa fa-download"></i></a>
+
+      <div app-dropdown-menu class="menu u-mtop10">
+        <div class="menu--item">
+          <button>File</button>
+          <div class="menu--item--dropdown">
+            <ul>
+              <li><button app-modal="templates/loadWorkspace.html">Load Workspace</button></li>
+              <li><button>Save Workspace As...</button></li>
+              <li class="separator"></li>
+              <li><button>Download as Story.str</button></li>
+              <li><button>Download as Story.json</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu--item">
+          <button>Help</button>
+          <div class="menu--item--dropdown">
+            <ul>
+              <li><button>Tutorial</button></li>
+              <li><button>Report Bug</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      
+
       <!-- <button class="app-button" >Download <i class="fa fa-download"></i></button> -->
       <!-- <button class="app-button" ng-click="setTextStory()">Export <i class="fa fa-upload"></i></button> -->
       <!-- <button ng-click="save()">Save <i class="fa fa-download"></i></button> -->
@@ -25,9 +53,15 @@
     </div>
   </div>
 
-  <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea>
+  <div class="col col-lg-12">
 
-  <adventure-workspace></adventure-workspace>
+    <!-- <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea> -->
+
+    <adventure-workspace></adventure-workspace>
+
+    <button class="app-button" ng-click="addNewPart()">Add Story Part <i class="fa fa-plus"></i></button>
+    <br>
+  </div>
   
 </div>
 

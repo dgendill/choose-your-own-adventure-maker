@@ -5,12 +5,15 @@ import Part from 'Models/Part.js';
 
 export default angular
   .module('appRoutes', ['ui.router', 'cyoa'])
-  .config(["$stateProvider", function($stateProvider) {
+  .config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
+    
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|data):/);
+
     
     $stateProvider.state({
       name: 'root',
       url: '',
-      controller: function($scope, $element, Parts, $window) {
+      controller: function($scope, $element, Parts, $window, $sce, Storage) {
         
         $scope.addNewPart = function() {
           Parts.addNewPart();
@@ -38,12 +41,20 @@ export default angular
           }).join('\n\n---next---\n\n');
         }
 
+        $scope.downloadHref = function() {
+          let urlBase = "data:text/plain;charset=utf-8,";
+          let url = urlBase + encodeURIComponent($scope.view.textStory);
+          return $sce.trustAs($sce.URL, url);
+        }
 
-        Parts.load();
+        // JSON.parse(window.localStorage.getItem('Story')) 
+
+        Parts.load(Storage.loadFromCurrentWorkspace());
+
         $scope.setTextStory();
         
         $window.setInterval(function() {
-          Parts.save();
+          Storage.saveToCurrentWorkspace(Parts.toJson());
           $scope.setTextStory();
           $scope.$applyAsync();
         }, 1500);
