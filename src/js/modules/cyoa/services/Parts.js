@@ -13,27 +13,25 @@ L.service("Parts", function() {
     self.all.splice(index, 1);
   }
 
+  this.copyPart = function(index) {
+    self.all.splice(index+1, 0, self.all[index].clone());
+  }
+
   this.save = function() {
     window.localStorage.setItem('Story', angular.toJson(self.all));
   }
 
-  this.load = function() {
+  // StringifiedJSON -> Eff
+  this.load = function(data) {
     self.all.length = 0;
-    [].push.apply(self.all, (JSON.parse(window.localStorage.getItem('Story')) || self.defaultParts).map(Part.fromForeign));
-    
-
-    // const old = self.all;
-    // console.log(self.all);
-    // [].splice.apply(self.all, [0, self.all.length].concat(
-    //   JSON.parse(window.localStorage.getItem('Story')).map(Part.fromForeign)
-    // ));
-    // const n = self.all;
-    // console.log(self.all);
-    // console.log(old === n);
-
+    [].push.apply(self.all, (angular.fromJson(data) || self.defaultParts).map(Part.fromForeign));
   }
 
   this.defaultParts = [new Part(), new Part()]
   this.all = [];
+
+  this.toJson = function() {
+    return angular.toJson(this.all);
+  }
 
 });

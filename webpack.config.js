@@ -31,6 +31,10 @@ const frontend = {
         from : 'src/scss/font-awesome/fonts',
         to : '../dist/css/font-awesome/fonts'
       },
+      {
+        from : 'src/templates',
+        to : '../dist/templates'
+      },
     ])
   ],
   resolve: {
