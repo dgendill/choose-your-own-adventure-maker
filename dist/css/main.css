@@ -764,11 +764,11 @@ hr {
   .col-lg-offset-0 {
     margin-left: 0; } }
 
-.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after {
+.clearfix:before, .menu:before, .clearfix:after, .menu:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after {
   content: " ";
   display: table; }
 
-.clearfix:after, .container:after, .container-fluid:after, .row:after {
+.clearfix:after, .menu:after, .container:after, .container-fluid:after, .row:after {
   clear: both; }
 
 .center-block {
@@ -3152,8 +3152,8 @@ html {
   box-sizing: inherit; }
 
 html {
-  font-size: 22px;
-  line-height: 37.4px; }
+  font-size: 16px;
+  line-height: 27.2px; }
 
 body {
   margin: 0;
@@ -3177,7 +3177,7 @@ p, ul, ol, dl, pre, pre[class*="language-"].code-toolbar {
   margin-bottom: 1.5em; }
 
 p, ul, ol, dl {
-  font-size: 1.2em; }
+  font-size: 1rem; }
 
 pre[class*="language-"] {
   font-size: .9em; }
@@ -3203,6 +3203,12 @@ pre {
 
 .u-pointer {
   cursor: pointer; }
+
+.u-pull-right {
+  float: right; }
+
+.u-pull-left {
+  float: left; }
 
 .u-ptop5 {
   padding-top: 5px; }
@@ -3233,6 +3239,36 @@ pre {
 
 .u-ptop50 {
   padding-top: 50px; }
+
+.u-mtop5 {
+  margin-top: 5px; }
+
+.u-mtop10 {
+  margin-top: 10px; }
+
+.u-mtop15 {
+  margin-top: 15px; }
+
+.u-mtop20 {
+  margin-top: 20px; }
+
+.u-mtop25 {
+  margin-top: 25px; }
+
+.u-mtop30 {
+  margin-top: 30px; }
+
+.u-mtop35 {
+  margin-top: 35px; }
+
+.u-mtop40 {
+  margin-top: 40px; }
+
+.u-mtop45 {
+  margin-top: 45px; }
+
+.u-mtop50 {
+  margin-top: 50px; }
 
 .col-centered {
   float: none;
@@ -3347,12 +3383,17 @@ body {
 
 .app-button {
   background: #73be7c;
+  color: #333;
   padding: .3em 1em;
   border: 0;
+  text-decoration: none;
   cursor: pointer;
   display: inline-block;
   font-size: 15px;
   border-radius: .3em; }
+  .app-button:hover {
+    color: #000;
+    text-decoration: none; }
   .app-button:focus, .app-button:active {
     box-shadow: inset 0px 0px 2px #000000; }
   .app-button.disabled, .app-button:disabled {
@@ -3401,7 +3442,7 @@ textarea {
     border: 1px solid #b3b3b3;
     padding: 1em;
     flex-basis: 45%;
-    margin: 0 0 2em 2em; }
+    margin: 0 1em 1em 0; }
   .adventure-workspace .adventure-workspace__choice {
     width: 100%;
     display: flex;
@@ -3419,4 +3460,123 @@ textarea {
 .export-textarea {
   width: 50%;
   height: 200px;
-  margin: 1em 2em; }
+  margin: 1em 0; }
+
+.cyoa-header {
+  margin-bottom: 1em; }
+
+.menu {
+  width: 100%;
+  background: #555;
+  color: #fff;
+  font-size: 1rem; }
+  .menu .menu--item {
+    float: left;
+    position: relative; }
+    .menu .menu--item button, .menu .menu--item a {
+      padding: 0;
+      cursor: pointer;
+      color: #fff;
+      background: none;
+      text-decoration: none; }
+      .menu .menu--item button:hover, .menu .menu--item a:hover {
+        color: #ccc; }
+    .menu .menu--item > button {
+      padding: 5px 10px; }
+    .menu .menu--item .menu--item--dropdown {
+      display: none;
+      position: absolute;
+      left: 0;
+      border-top: 1px solid #666;
+      z-index: 100;
+      width: 400px; }
+      .menu .menu--item .menu--item--dropdown.visible {
+        display: block; }
+      .menu .menu--item .menu--item--dropdown ul {
+        opacity: 0;
+        background: #5f5f5f;
+        list-style-type: none;
+        padding: 0 10px;
+        margin-bottom: 0; }
+        .menu .menu--item .menu--item--dropdown ul.visible {
+          opacity: 1; }
+        .menu .menu--item .menu--item--dropdown ul li {
+          padding: 5px 0; }
+        .menu .menu--item .menu--item--dropdown ul li.separator {
+          padding: 0;
+          background: #777;
+          border-bottom: 1px solid #484848;
+          display: block;
+          height: 2px; }
+
+.modal {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000; }
+  .modal .modal--inner {
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
+    background: #fff;
+    width: 500px;
+    min-height: 500px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    max-height: 80vh; }
+
+.c-menudropdown {
+  position: relative;
+  font-size: 15px;
+  display: inline-block; }
+  .c-menudropdown .c-menudropdown__options {
+    display: none; }
+  .c-menudropdown.visible .app-button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+  .c-menudropdown.visible.c-menudropdown--ledge-left .c-menudropdown__options {
+    right: 0;
+    left: auto;
+    border-top-left-radius: 5px; }
+  .c-menudropdown.visible.c-menudropdown--white .c-menudropdown__options {
+    background: #fff; }
+    .c-menudropdown.visible.c-menudropdown--white .c-menudropdown__options .c-menudropdown__option-row:hover {
+      background: #ccc; }
+  .c-menudropdown.visible .c-menudropdown__options {
+    animation-name: fadein;
+    animation-duration: .3s;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    background: #84c68c;
+    z-index: 100;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+    .c-menudropdown.visible .c-menudropdown__options .c-menudropdown__option {
+      width: 100%;
+      display: block;
+      padding: 5px 15px;
+      text-align: left;
+      -webkit-transition: background .3s; }
+      .c-menudropdown.visible .c-menudropdown__options .c-menudropdown__option i {
+        width: 20px; }
+      .c-menudropdown.visible .c-menudropdown__options .c-menudropdown__option span:first-child {
+        display: inline-block;
+        text-align: right;
+        width: 25px;
+        margin-right: 10px; }
+    .c-menudropdown.visible .c-menudropdown__options .c-menudropdown__option-row:hover {
+      background: #52a55c;
+      cursor: pointer;
+      -webkit-transition: background .3s; }
+    .c-menudropdown.visible .c-menudropdown__options .c-menudropdown__option-row:first-child {
+      border-top-left-radius: 5px; }
+    .c-menudropdown.visible .c-menudropdown__options .c-menudropdown__option-row:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }

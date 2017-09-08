@@ -1,0 +1,37 @@
+<form name="workspaceform" class="adventure-workspace">
+<div ng-repeat="part in $ctrl.parts" class="col col-lg-6">
+  <article class="adventure-workspace--part">
+    
+    <div app-menu-dropdown class="c-menudropdown c-menudropdown--white c-menudropdown--ledge-left u-pull-right">
+      <button class="app-button app-button--whitesquare">
+        <i class="fa fa-ellipsis-v"></i>
+      </button>
+      <div class="c-menudropdown__options">
+        <div class="c-menudropdown__option-row">
+          <button ng-click="$ctrl.removePart($index)" class="c-menudropdown__option">
+            <i class="fa fa-trash"></i> Delete Part
+          </button>
+        </div>
+        <div class="c-menudropdown__option-row">
+          <button ng-click="$ctrl.copyPart($index)" class="c-menudropdown__option">
+            <i class="fa fa-copy"></i> Copy Part
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <small style="font-size:9px">{{::part.id}}</small>
+    <h2>Part {{$index}}</h2>
+    
+
+    <textarea ng-model="part.content"></textarea>
+    <button alt="Add Choice" class="app-button app-button--green" ng-click="$ctrl.addChoice(part)">Add Choice <i class="fa fa-plus"></i></button>
+    <div ng-repeat="choice in part.choices" class="adventure-workspace__choice">
+      <button alt="Remove Choice" ng-click="$ctrl.removeChoice(part.choices, $index)" class="app-button app-button--ui-row"><i class="fa fa-minus"></i></button>
+      <input type="text" ng-model="choice.content"> <span class="adventure-workspace__choice__text">goes to</span>
+      <select required ng-options="rpart as rpart.label for rpart in $ctrl.partLinks(part) track by rpart.id" ng-model="choice.linksTo">
+        <option value="">- Choose Part -</option>
+      </select>
+    </div>
+  </article>
+</div>
