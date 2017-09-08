@@ -31,11 +31,10 @@ function AdventureWorkspaceCtrl($scope, $element, $attrs, Parts) {
 
   ctrl.removePart = function(index) {
     Parts.removePart(index);
+  }
 
-    part.choices.push({
-      content : '',
-      linksTo : null
-    });
+  ctrl.copyPart = function(index) {
+    Parts.copyPart(index);
   }
 
   ctrl.removeChoice = function(choices, index) {

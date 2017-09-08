@@ -7,9 +7,14 @@ format (see below for specification). See [choose-your-own-adventure-parser](htt
 
 # Todo
 
-1. Add controls to remove a story part.
-2. Add download button, providing .str format and .json format.
-3. Embed compiler so stories can be immediately tested in the browser.
+- [x] Add controls to remove a story part.
+- [ ] Add controls to copy a story part.
+- [x] Add menubar
+- [x] Add modal code
+- [x] Add download button, providing .str format
+- [ ] Add download button, providing .json format
+- [ ] Embed compiler so stories can be immediately tested in the browser.
+- [ ] Allow multiple workspaces and ability to switch between then.
 
 # File Format
 

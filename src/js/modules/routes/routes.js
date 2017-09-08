@@ -33,7 +33,7 @@ export default angular
           $scope.view.textStory = Parts.all.map(element => {
             let text = "Text " + idToString(element.id) + "\n";
             text += element.choices.map(c => {                
-                return "[" + quote(c.content) + "] go " + idToString(c.linksTo.id);
+                return "[" + quote(c.content) + "] go " + idToString(_.get(c.linksTo, "id"));
               }).join('\n')
             text += "\n---\n";
             text += (element.content || "There is nothing here.");

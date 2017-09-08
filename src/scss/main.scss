@@ -162,10 +162,12 @@ textarea {
     position:relative;
 
 
-    button {
+    button, a {
       padding:0;
       cursor: pointer;
+      color:#fff;
       background:none;
+      text-decoration:none;
 
       &:hover {
         color:#ccc;
@@ -233,5 +235,95 @@ textarea {
     border:1px solid rgba(0,0,0,.6);
     border-radius:3px;
     max-height:80vh;
+  }
+}
+
+.c-menudropdown {
+  $radius-size: 5px;
+
+  position:relative;
+  font-size:15px;
+  display:inline-block;
+  .c-menudropdown__options { display:none; }
+
+  &.visible {
+
+    .app-button {
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+
+    &.c-menudropdown--ledge-left .c-menudropdown__options {
+      right:0;
+      left:auto;
+      border-top-left-radius:$radius-size;
+    }
+
+    &.c-menudropdown--white {
+      .c-menudropdown__options {
+        background:#fff;
+
+        .c-menudropdown__option-row:hover {
+          background:#ccc;
+        }
+      }
+
+
+    }
+
+    .c-menudropdown__options {
+      animation-name: fadein;
+      animation-duration: .3s;
+      display:block;
+      position:absolute;
+      top:100%;
+      left:0;
+      white-space:nowrap;
+      background:#84c68c;
+      z-index:100;
+      border-bottom-left-radius:$radius-size;
+      border-bottom-right-radius:$radius-size;
+
+
+
+      .c-menudropdown__option {
+        width:100%;
+        display:block;
+        padding: 5px 15px;
+        text-align:left;
+        -webkit-transition: background .3s;
+
+        i {
+          width:20px;
+        }
+        span:first-child {
+          display:inline-block;
+          text-align:right;
+          width:25px;
+          margin-right:10px;
+        }
+      }
+
+      .c-menudropdown__option-row {
+        
+
+        &:hover {
+          background: #52a55c;
+          cursor:pointer;
+          -webkit-transition: background .3s;
+        }
+
+        &:first-child {
+          border-top-left-radius:$radius-size;
+        }
+
+        &:last-child {
+          border-bottom-left-radius:$radius-size;
+          border-bottom-right-radius:$radius-size;
+        }
+      }
+
+    }
+
   }
 }

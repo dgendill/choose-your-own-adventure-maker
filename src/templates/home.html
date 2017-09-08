@@ -25,15 +25,15 @@
           <button>File</button>
           <div class="menu--item--dropdown">
             <ul>
-              <li><button app-modal="templates/loadWorkspace.html">Load Workspace</button></li>
-              <li><button>Save Workspace As...</button></li>
-              <li class="separator"></li>
-              <li><button>Download as Story.str</button></li>
-              <li><button>Download as Story.json</button></li>
+              <!-- <li><button app-modal="templates/loadWorkspace.html">Load Workspace</button></li> -->
+              <!-- <li><button>Save Workspace As...</button></li> -->
+              <!-- <li class="separator"></li> -->
+              <li><a ng-href="{{downloadHref()}}" download="Story.str">Download as Story.str</a></li>
+              <!-- <li><button>Download as Story.json</button></li> -->
             </ul>
           </div>
         </div>
-        <div class="menu--item">
+        <!-- <div class="menu--item">
           <button>Help</button>
           <div class="menu--item--dropdown">
             <ul>
@@ -41,7 +41,7 @@
               <li><button>Report Bug</button></li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
 
       
@@ -55,7 +55,7 @@
 
   <div class="col col-lg-12">
 
-    <!-- <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea> -->
+     <!-- <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea>  -->
 
     <adventure-workspace></adventure-workspace>
 
