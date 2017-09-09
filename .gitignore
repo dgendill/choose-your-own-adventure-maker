@@ -1,2 +1,4 @@
 /node_modules
 dbcredentials.js
+/dist
+/.vscode

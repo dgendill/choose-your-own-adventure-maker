@@ -1,0 +1,28 @@
+<div>
+  <p>You are using the <b>{{$ctrl.workspaceName()}}</b> workspace. Enter a new name for your workspace or choose an existing one from the list.</p>
+  <hr>
+  <div class="row">
+    <div class="col col-lg-4">
+      <select readonly size="7"
+              ng-model="$ctrl.data.chosenExistingWorkspace"
+              ng-click="$ctrl.setWorkspaceName()"
+              ng-options="workspace as workspace for workspace in $ctrl.workspaces">       
+      </select>
+    </div>
+    <div class="col col-lg-8">
+      <form name="workspaceForm" ng-submit="workspaceForm.$valid && $ctrl.saveWorkspace()">
+        <div class="row">
+          <div class="col col-lg-12 u-pbottom10">
+            <input required ng-model="$ctrl.data.name" type="text" placeholder="Workspace Name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-lg-12">
+            <input type="submit" class="app-button" value="Save Workspace">
+            <button class="app-button" ng-click="$ctrl.closeModal()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

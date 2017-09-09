@@ -25,8 +25,9 @@
           <button>File</button>
           <div class="menu--item--dropdown">
             <ul>
-              <!-- <li><button app-modal="templates/loadWorkspace.html">Load Workspace</button></li> -->
-              <!-- <li><button>Save Workspace As...</button></li> -->
+               <li><button ng-click="createNewProject()">New Workspace</button></li>
+               <li><button app-modal="<load-workspace></load-workspace>">Load Workspace</button></li>
+               <li><button app-modal-height="300px" app-modal="<save-workspace></save-workspace>">Save Workspace As...</button></li> 
               <!-- <li class="separator"></li> -->
               <li><a ng-href="{{downloadHref()}}" download="Story.str">Download as Story.str</a></li>
               <!-- <li><button>Download as Story.json</button></li> -->

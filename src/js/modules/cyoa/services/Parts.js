@@ -5,6 +5,10 @@ import angular from 'angular';
 L.service("Parts", function() {
   const self = this;
 
+  this.reset = function() {
+    this.load(angular.toJson(this.defaultParts));
+  }
+
   this.addNewPart = function() {
     self.all.push(new Part());
   }

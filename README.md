@@ -8,13 +8,16 @@ format (see below for specification). See [choose-your-own-adventure-parser](htt
 # Todo
 
 - [x] Add controls to remove a story part.
-- [ ] Add controls to copy a story part.
+- [x] Add controls to copy a story part.
 - [x] Add menubar
 - [x] Add modal code
 - [x] Add download button, providing .str format
+- [x] Allow multiple workspaces and ability to switch between then.
+- [x] Allow loading saved workspace
 - [ ] Add download button, providing .json format
 - [ ] Embed compiler so stories can be immediately tested in the browser.
-- [ ] Allow multiple workspaces and ability to switch between then.
+- [ ] Add ability to delete and rename workspaces
+
 
 # File Format
 

@@ -41,13 +41,17 @@ export default angular
           }).join('\n\n---next---\n\n');
         }
 
+        $scope.createNewProject = function() {
+          Storage.saveToCurrentWorkspace(Parts.toJson());
+          Storage.createDatedWorkspace();
+          Parts.reset();
+        }
+
         $scope.downloadHref = function() {
           let urlBase = "data:text/plain;charset=utf-8,";
           let url = urlBase + encodeURIComponent($scope.view.textStory);
           return $sce.trustAs($sce.URL, url);
         }
-
-        // JSON.parse(window.localStorage.getItem('Story')) 
 
         Parts.load(Storage.loadFromCurrentWorkspace());
 

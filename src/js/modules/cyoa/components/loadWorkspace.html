@@ -1,0 +1,17 @@
+<div>
+  <p>Choose the workspace you would like to load. You are currently using workspace <b>{{$ctrl.workspaceName()}}</b>.</p>
+
+  <form name="workspaceform" ng-submit="workspaceform.$valid && $ctrl.loadWorkspace()">
+    
+      <select class="u-mbottom10"
+              required
+              ng-model="$ctrl.data.name"
+              ng-options="workspace as workspace for workspace in $ctrl.workspaces">       
+        <option value="">- Choose Workspace to Load - </option>
+      </select>
+    
+
+    <input class="app-button" type="submit" value="Load Workspace">
+    <button class="app-button" ng-click="$ctrl.closeModal()">Cancel</button>
+  </form>
+</div>

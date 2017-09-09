@@ -38,6 +38,11 @@ L.directive('appDropdownMenu', function() {
                 $(submenu).find('ul').addClass('visible');
               }, 1);
             });
+
+            $(submenu).find('button').on('click', function() {
+              submenu.removeClass('visible');
+            });
+            
           });
 
           $(document).on('click', function(e) {

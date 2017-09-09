@@ -3,9 +3,13 @@ import angular from 'angular';
 
 L.service("Storage", function() {
   const self = this;
-  const defaultKey = "cyoa-ws-DefaultStory";
+  const workspacePrefix = "cyoa-ws-";
+  const defaultKey = workspacePrefix + "DefaultStory";
   const workspaceKey = "cyoa-Workspace";
   const localStorage = window.localStorage;
+  const prefixMatcher = function() {
+    return new RegExp('^' + workspacePrefix, 'g');
+  }
 
   // Initialize the default workspace
   if (!localStorage.getItem(workspaceKey)) {
@@ -16,8 +20,31 @@ L.service("Storage", function() {
     return localStorage.getItem(workspaceKey);
   }
 
+  this.niceWorkspaceName = function(name) {
+    return name.replace(prefixMatcher(), '');
+  }
+
+  this.rawWorkspaceName = function(name) {
+    return workspacePrefix + name.replace(prefixMatcher(), '');
+  }
+
   this.setWorkspace = function(key) {
-    localStorage.setItem(workspaceKey, key);
+    localStorage.setItem(workspaceKey, self.rawWorkspaceName(key));
+  }
+
+  this.createWorkspace = function(name) {
+    var name = name.replace(prefixMatcher(), '');
+    self.setWorkspace(workspacePrefix + name);
+  }
+
+  this.createDatedWorkspace = function() {
+    let now = new Date();
+    let key = now.toLocaleDateString() + " at " + now.toLocaleTimeString();
+    self.setWorkspace(key);
+  }
+
+  this.usingDefaultWorkspace = function() {
+    return this.getWorkspace() == defaultKey;
   }
 
   this.viewWorkspaces = function() {
@@ -30,7 +57,7 @@ L.service("Storage", function() {
     }
     
     return localStorageKeys().filter(function(key) {
-      return key.match(/^cyoa-ws-/);   
+      return key.match(prefixMatcher());   
     });    
   }
 
@@ -40,8 +67,19 @@ L.service("Storage", function() {
   }
 
   // String -> StringifiedJSON
-  this.loadFromCurrentWorkspace = function(key) {
+  this.loadFromCurrentWorkspace = function() {
     return window.localStorage.getItem(self.getWorkspace());
+  }
+
+  // String -> StringifiedJSON
+  this.loadFromCurrentWorkspace = function() {
+    return window.localStorage.getItem(self.getWorkspace());
+  }
+
+  // String -> StringifiedJSON
+  this.loadFrom = function(name) {
+    name = this.rawWorkspaceName(name);
+    return window.localStorage.getItem(name);
   }
   
   // String -> StringifiedJSON -> Eff
