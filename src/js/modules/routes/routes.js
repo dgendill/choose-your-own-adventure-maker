@@ -63,6 +63,27 @@ export default angular
           $scope.$applyAsync();
         }, 1500);
 
+        $scope.parts = Parts.all;
+
+        $scope.removePart = function(index) {
+          Parts.removePart(index);
+        }
+
+        $scope.copyPart = function(index) {
+          Parts.copyPart(index);
+        }
+
+        $scope.removeChoice = function(part, index) {
+          part.choices.splice(index, 1);
+        }
+
+        $scope.addChoice = function(part) {
+          part.choices.push({
+            content : '',
+            linksTo : null
+          });
+        }
+
 
       },
       template: require('Templates/home.html'),

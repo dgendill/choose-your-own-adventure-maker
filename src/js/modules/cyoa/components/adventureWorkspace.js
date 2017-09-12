@@ -2,23 +2,28 @@ import angular from 'angular';
 import L from '../cyoa.js';
 
 L.component('adventureWorkspace', {
-  bindings : {},
+  bindings : {
+    parts : '<',
+    onRemovePart : '&',
+    onCopyPart : '&',
+    onRemoveChoice : '&',
+    onAddChoice : '&'
+
+  },
   template: require('Templates/adventureWorkspace.html'),
   controller : AdventureWorkspaceCtrl
 });
 
 
-function AdventureWorkspaceCtrl($scope, $element, $attrs, Parts) {
+function AdventureWorkspaceCtrl($scope, $element, $attrs) {
   var ctrl = this;
-  ctrl.parts = Parts.all;
 
   $scope.$watch('workspaceform.$valid', function(isValid) {
     console.log(isValid);
   });
 
   ctrl.partLinks = function(exclude) {
-    
-    return Parts.all.map(function(e, index) {
+    return ctrl.parts.map(function(e, index) {
       return {
         label : ("Part " + index),
         id : e.id
@@ -30,21 +35,23 @@ function AdventureWorkspaceCtrl($scope, $element, $attrs, Parts) {
   }
 
   ctrl.removePart = function(index) {
-    Parts.removePart(index);
+    ctrl.onRemovePart({index:index});
   }
 
   ctrl.copyPart = function(index) {
-    Parts.copyPart(index);
+    ctrl.onCopyPart({index:index});
   }
 
-  ctrl.removeChoice = function(choices, index) {
-    choices.splice(index, 1);
+  ctrl.removeChoice = function(part, index) {
+    ctrl.onRemoveChoice({
+      part: part,
+      index: index
+    });
   }
 
   ctrl.addChoice = function(part) {
-    part.choices.push({
-      content : '',
-      linksTo : null
+    ctrl.onAddChoice({
+      part: part
     });
   }
 }

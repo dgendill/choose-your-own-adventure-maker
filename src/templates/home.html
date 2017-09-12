@@ -58,7 +58,12 @@
 
      <!-- <textarea class="export-textarea" readonly placeholder="Exported Story Goes Here" ng-model="view.textStory"></textarea>  -->
 
-    <adventure-workspace></adventure-workspace>
+    <adventure-workspace
+      parts="parts"
+      on-add-choice="addChoice(part)"
+      on-remove-choice="removeChoice(part, index)"
+      on-remove-part="removePart(index)"
+      on-copy-part="copyPart(index)"></adventure-workspace>
 
     <button class="app-button" ng-click="addNewPart()">Add Story Part <i class="fa fa-plus"></i></button>
     <br>
