@@ -35,6 +35,10 @@ const frontend = {
         from : 'src/templates',
         to : '../dist/templates'
       },
+      {
+        from : 'assets/aws-config.js',
+        to : '../dist/aws-config.js'
+      },
     ])
   ],
   resolve: {
