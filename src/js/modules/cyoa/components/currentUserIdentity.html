@@ -1,9 +1,0 @@
-<div class="u-mbottom15">
-  Amazon Cognito Identity ID: {{$ctrl.id}}
-  <div ng-if="$ctrl.facebookReady && !$ctrl.facebookLoggedIn">
-    <button class="app-button" ng-click="$ctrl.facebookLogin()">Login with Facebook</button>
-  </div>
-  <div ng-if="$ctrl.facebookReady && $ctrl.facebookLoggedIn">
-    <button class="app-button" ng-click="$ctrl.facebookLogout()">Logout</button>
-  </div>
-</div>

@@ -5,19 +5,16 @@ import Part from 'Models/Part.js';
 
 export default angular
   .module('appRoutes', ['ui.router', 'cyoa'])
-  .config(["$stateProvider", "$compileProvider", "IdentityProvider", function($stateProvider, $compileProvider, IdentityProvider) {
+  .config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
 
-    IdentityProvider.setFacebookAppId('171883510029996');
-    
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|data):/);
 
     
     $stateProvider.state({
       name: 'root',
       url: '',
-      controller: function($scope, $element, Parts, $window, $sce, Storage, Identity, userIdentity) {
+      controller: function($scope, $element, Parts, $window, $sce, Storage) {
 
-        $scope.userIdentity = userIdentity;
         $scope.useFacebook = false;
         
         $scope.addNewPart = function() {
@@ -92,11 +89,6 @@ export default angular
 
       },
       template: require('Templates/home.html'),
-      resolve: {
-        'userIdentity': function(Identity) {
-          return Identity.load();
-        }
-      }
     });
   }])
   .run(["$rootScope", function($rootScope) {
